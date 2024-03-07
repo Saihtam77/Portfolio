@@ -1,0 +1,45 @@
+@import 'scss/hover.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+$oxford-blue-300: #0a1128;
+$oxford-blue-200: #101C41;
+$oxford-blue-100: #142452;
+
+$icterine-300: #FCFF4B;
+$icterine-200: #FDFF70;
+$icterine-100: #FDFF85;
+
+$PayneGray-300: #6C7781;
+
+
+.bg-oxford-blue-300 {
+    background-color: $oxford-blue-300;
+}
+
+.bg-oxford-blue-200 {
+    background-color: $oxford-blue-200;
+}
+
+.bg-oxford-blue-100 {
+    background-color: $oxford-blue-100;
+}
+
+.bg-icterine-300 {
+    background-color: $icterine-300;
+}
+
+.bg-icterine-200 {
+    background-color: $icterine-200;
+}
+
+.bg-icterine-100 {
+    background-color: $icterine-100;
+}
+
+
+
+
+
