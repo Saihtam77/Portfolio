@@ -1,9 +1,9 @@
 import React from "react";
 
-const Label = ({ htmlFor, name }) => {
+const Label = ({ htmlFor, value }) => {
    return (
-      <label htmlFor={htmlFor} className="block text-sm font-medium text-gray-900 dark:text-white">
-         {name}
+      <label htmlFor={htmlFor} className="block font-medium text-white">
+         {value}
       </label>
    );
 };

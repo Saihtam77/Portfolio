@@ -6,10 +6,9 @@ const DashboardLayout = ({ children }) => {
       <>
          
          <DashboardNavbar />
-
-         <div class="p-4 sm:ml-64">
+         <main class="p-4 sm:ml-64 bg-gunMetal min-h-screen">
             {children}
-         </div>
+         </main>
 
       </>
    );

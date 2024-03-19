@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Competences;
+
 use App\Models\Parcours;
 use App\Models\Projets;
+use App\Models\Technologies;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -17,11 +18,11 @@ class HomeController extends Controller
     {
         $parcours=Parcours::OrderBy('created_at', 'desc')->take(5)->get();
         $projets=Projets::OrderBy('created_at', 'desc')->get();
-        $competences=Competences::OrderBy('created_at', 'desc')->get();
+        $technologies=Technologies::OrderBy('created_at', 'desc')->get();
         return Inertia::render("Home",[
             "parcours"=>$parcours,
             "projets"=>$projets,
-            "competences"=>$competences
+            "technologies"=>$technologies
         ]);
     }
 

@@ -14,15 +14,18 @@ return new class extends Migration
         Schema::create('projets', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            
-            $table->string('image')-> nullable();
-            $table->string('thumbnail')-> nullable();
-            
-         
+
             $table->string('titre');
-            $table->text('desc');
-            $table->text('texte');
-            $table->string('competences');
+            $table->string('intro');
+            $table->string('presentation');
+
+            $table->json('objectifs');
+
+            $table->string('thumbnail')->nullable();
+
+            $table->json('images')->nullable();
+            $table->json('galleryFrontOffice')->nullable();
+            $table->json('galleryBackOffice')->nullable();
         });
     }
 

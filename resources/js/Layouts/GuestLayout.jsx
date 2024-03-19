@@ -5,7 +5,10 @@ const Layout = ({ children }) => {
     return (
         <>
             <BasicNavbar />
-            <main className="flex flex-col gap-y-20 bg-oxford-blue-300">{children}</main>
+
+            <main className="relative flex flex-col gap-y-20 bg-gunMetal pt-10 min-h-screen">
+                {children}
+            </main>
             <Footer />
         </>
     );

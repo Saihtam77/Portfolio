@@ -62,9 +62,7 @@ class ParcoursController extends Controller
 
         $parcour->save();
 
-        return Inertia::render('parcours.index', [
-            'success' => request()->session()->get('success')
-        ]);
+        return to_route('parcours.index')->with('success', 'Parcour Ajouter avec succès');
     }
 
     /**
@@ -123,8 +121,8 @@ class ParcoursController extends Controller
     {   
         $parcour = Parcours::find($id);
         $parcour->delete();
-        $success = 'Parcour supprimé avec succès';
-        return to_route('parcours.index')->with('success', $success);
+        
+        return to_route('parcours.index')->with('success', 'Parcour supprimé avec succès');
         
     }
 }

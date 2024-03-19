@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Competences;
+use App\Models\Technologies;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CompetencesTablesSeeder extends Seeder
+class TechnologiesTablesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Competences::factory()->count(10)->create();
+        Technologies::factory()->count(10)->create();
     }
 }

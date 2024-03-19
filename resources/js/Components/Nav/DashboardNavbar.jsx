@@ -1,6 +1,14 @@
 import { Link } from "@inertiajs/react";
+import { useState } from "react";
 
 const DashboardNavbar = ({ user }) => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+    const handleToggleSidebar = (e) => {
+        e.preventDefault();
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
     return (
         <>
             <button
@@ -8,11 +16,12 @@ const DashboardNavbar = ({ user }) => {
                 data-drawer-toggle="default-sidebar"
                 aria-controls="default-sidebar"
                 type="button"
-                class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                onClick={handleToggleSidebar}
+                class="inline-flex items-center p-2 pt-2 ps-3 tewhi text-sm sm:hidden bg-gunMetal w-full"
             >
                 <span class="sr-only">Open sidebar</span>
                 <svg
-                    class="w-6 h-6"
+                    class="w-6 h-6 "
                     aria-hidden="true"
                     fill="currentColor"
                     viewBox="0 0 20 20"
@@ -28,18 +37,22 @@ const DashboardNavbar = ({ user }) => {
 
             <aside
                 id="default-sidebar"
-                class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+                class={
+                    isSidebarOpen
+                        ? "fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-gray-800  md:translate-x-0 "
+                        : "fixed top-0 left-0 z-40 w-full  h-screen pt-14 transition-transform translate-x-0 bg-gray-800  md:translate-x-0 "
+                }
                 aria-label="Sidebar"
             >
-                <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                <div class="h-full px-3 py-4 overflow-y-auto text-white">
                     <ul class="space-y-2 font-medium">
                         <li>
                             <Link
                                 href={route("dashboard")}
-                                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                                class="flex items-center p-3 rounded-lg hover:text-black hvr-sweep-to-right"
                             >
                                 <svg
-                                    class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                    class="w-5 h-5  transition duration-75 "
                                     aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="currentColor"
@@ -54,10 +67,10 @@ const DashboardNavbar = ({ user }) => {
                         <li>
                             <Link
                                 href={route("projets.index")}
-                                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                                class="flex items-center p-3 rounded-lg hover:text-black hvr-sweep-to-right "
                             >
                                 <svg
-                                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                    class="flex-shrink-0 w-5 h-5  transition duration-75 "
                                     aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="currentColor"
@@ -68,16 +81,15 @@ const DashboardNavbar = ({ user }) => {
                                 <span class="flex-1 ms-3 whitespace-nowrap">
                                     Projets
                                 </span>
-                        
                             </Link>
                         </li>
                         <li>
                             <Link
                                 href={route("parcours.index")}
-                                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                                class="flex items-center p-3 rounded-lg hover:text-black hvr-sweep-to-right   "
                             >
                                 <svg
-                                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                    class="flex-shrink-0 w-5 h-5  transition duration-75 "
                                     aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="currentColor"
@@ -88,17 +100,16 @@ const DashboardNavbar = ({ user }) => {
                                 <span class="flex-1 ms-3 whitespace-nowrap">
                                     Parcours
                                 </span>
-                                
                             </Link>
                         </li>
 
                         <li>
-                            <a
-                                href="#"
-                                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                            <Link
+                                href={route("technologies.index")}
+                                class="flex items-center p-3 rounded-lg hover:text-black hvr-sweep-to-right   "
                             >
                                 <svg
-                                    class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                    class="flex-shrink-0 w-5 h-5  transition duration-75 "
                                     aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="currentColor"
@@ -106,11 +117,30 @@ const DashboardNavbar = ({ user }) => {
                                 >
                                     <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
                                 </svg>
-                                <Link href={route("home")} class="flex-1 ms-3 whitespace-nowrap">
+                                <span class="flex-1 ms-3 whitespace-nowrap">
+                                    Technologies
+                                </span>
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link
+                                href={route("home")}
+                                class="flex items-center p-3 rounded-lg hover:text-black hvr-sweep-to-right "
+                            >
+                                <svg
+                                    class="flex-shrink-0 w-5 h-5  transition duration-75 "
+                                    aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
+                                </svg>
+                                <span class="flex-1 ms-3 whitespace-nowrap">
                                     Home
-                                </Link>
-                                
-                            </a>
+                                </span>
+                            </Link>
                         </li>
                     </ul>
                 </div>

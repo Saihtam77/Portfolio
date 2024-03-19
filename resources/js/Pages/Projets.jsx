@@ -5,18 +5,10 @@ import ProjetsElement from "../Components/Projets/ProjetsElement";
 const Projets = ({ projets }) => {
     return (
         <Layout>
-            <section className="container flex flex-col mx-auto gap-y-5">
+            <section className="container flex flex-col mx-auto gap-y-20    ">
                 {/* map projets */}
                 {projets.map((projet) => (
-                    <ProjetsElement
-                        id={projet.id}
-                        img={projet.img}
-                        completion={projet.completion}
-                        titre={projet.titre}
-                        desc={projet.desc}
-                        texte={projet.texte}
-                        competence={projet.competences}
-                    />
+                    <ProjetsElement projet={projet} />
                 ))}
             </section>
         </Layout>

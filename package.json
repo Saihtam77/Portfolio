@@ -23,6 +23,7 @@
     "dependencies": {
         "flowbite": "^2.3.0",
         "flowbite-react": "^0.7.2",
-        "react-circular-progressbar": "^2.1.0"
+        "react-circular-progressbar": "^2.1.0",
+        "react-pdf": "^7.7.1"
     }
 }

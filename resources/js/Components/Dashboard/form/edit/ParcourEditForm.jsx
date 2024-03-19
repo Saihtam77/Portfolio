@@ -23,9 +23,9 @@ const ParcourEditForm = ({ parcour }) => {
     const handleUpdate = (e) => {
         e.preventDefault();
         post(route("parcours.update", parcour.id), {
-           forceFormData: true,
+            forceFormData: true,
         });
-     };
+    };
 
     return (
         <section className="bg-white dark:bg-gray-900">
@@ -35,7 +35,7 @@ const ParcourEditForm = ({ parcour }) => {
                 </h2>
                 <form onSubmit={handleUpdate}>
                     <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                        {/* titre */}   
+                        {/* titre */}
                         <div className="sm:col-span-2">
                             <Label
                                 htmlfor="titre"

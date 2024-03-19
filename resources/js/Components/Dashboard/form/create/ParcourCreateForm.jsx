@@ -16,9 +16,6 @@ const ParcourCreateForm = () => {
         date_fin: "",
         desc: "",
         texte: "",
-
-        /* thumbnail: "",
-        image: "", */
     });
 
     const handleSubmit = (e) => {
@@ -27,17 +24,10 @@ const ParcourCreateForm = () => {
         post(route("parcours.store", data), { forceFormData: true });
     };
 
-    /* const showdata = (e) => {
-        e.preventDefault();
-        console.log(data);
-    }; */
-
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <section className="bg-gunMetal text-white">
             <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-                <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-                    Ajouter un parcour
-                </h2>
+                <h2 className="mb-4 text-xl font-bold">Ajouter un parcour</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         {/* titre */}
@@ -45,7 +35,7 @@ const ParcourCreateForm = () => {
                             <Label
                                 htmlfor="titre"
                                 name="Titre"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                className="block mb-2 text-sm font-medium"
                             />
                             <Input
                                 value={data.titre}
@@ -65,7 +55,7 @@ const ParcourCreateForm = () => {
                             <Label
                                 htmlfor="niveau_etude"
                                 name="Niveau d'étude"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                className="block mb-2 text-sm font-medium "
                             />
                             <Input
                                 value={data.niveau_etude}
@@ -85,7 +75,7 @@ const ParcourCreateForm = () => {
                             <Label
                                 htmlfor="entreprise"
                                 name="Entreprise"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                className="block mb-2 text-sm font-medium "
                             />
                             <Input
                                 value={data.entreprise}
@@ -105,7 +95,7 @@ const ParcourCreateForm = () => {
                             <Label
                                 htmlfor="competences"
                                 name="Compétences"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                className="block mb-2 text-sm font-medium "
                             />
                             <Input
                                 value={data.competences}
@@ -127,7 +117,7 @@ const ParcourCreateForm = () => {
                                 <Label
                                     htmlfor="date_debut"
                                     name="Date de début"
-                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    className="block mb-2 text-sm font-medium "
                                 />
                                 <Input
                                     value={data.date_debut}
@@ -146,7 +136,7 @@ const ParcourCreateForm = () => {
                                 <Label
                                     htmlfor="date_fin"
                                     name="Date de fin"
-                                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    className="block mb-2 text-sm font-medium "
                                 />
                                 <Input
                                     value={data.date_fin}
@@ -166,7 +156,7 @@ const ParcourCreateForm = () => {
                             <Label
                                 htmlfor="desc"
                                 name="Description"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                className="block mb-2 text-sm font-medium "
                             />
                             <TextArea
                                 value={data.desc}
@@ -186,7 +176,7 @@ const ParcourCreateForm = () => {
                             <Label
                                 htmlfor="texte"
                                 name="Texte"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                className="block mb-2 text-sm font-medium "
                             />
                             <TextArea
                                 value={data.texte}
@@ -206,7 +196,7 @@ const ParcourCreateForm = () => {
                             <Label
                                 htmlfor="thumbnail"
                                 name="Thumbnail"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                className="block mb-2 text-sm font-medium "
                             />
                             <Input
                                 type="file"
@@ -223,7 +213,7 @@ const ParcourCreateForm = () => {
                             <Label
                                 htmlfor="image"
                                 name="Image"
-                                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                className="block mb-2 text-sm font-medium "
                             />
                             <Input
                                 type="file"
@@ -240,7 +230,7 @@ const ParcourCreateForm = () => {
                     <div className="flex justify-end">
                         <button
                             type="submit"
-                            className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                            className="px-4 py-2 mt-4 text-black hvr-grow bg-jonquil rounded-md"
                         >
                             Ajouter
                         </button>

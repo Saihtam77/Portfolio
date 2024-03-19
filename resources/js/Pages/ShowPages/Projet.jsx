@@ -1,13 +1,16 @@
-import ProjetBlog from '@/Components/Projets/ProjetBlog';
-import ProjetContentSection from '@/Components/Projets/ProjetContentSection';
-import Layout from '@/Layouts/GuestLayout';
-import React from 'react';
+import GallerySection from "@/Components/Projets/GallerySection";
+import PresentationSection from "@/Components/Projets/PresentationSection";
+import TechSection from "@/Components/Projets/TechSection";
+import Layout from "@/Layouts/GuestLayout";
 
-const Projet = ({projet}) => {
+import React from "react";
+
+const Projet = ({ projet }) => {
     return (
         <Layout>
-            <ProjetContentSection projet={projet} />
-            <ProjetBlog projet={projet} />
+            <PresentationSection projet={projet} />
+            <TechSection projet={projet} />
+            <GallerySection />
         </Layout>
     );
 };

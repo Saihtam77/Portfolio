@@ -22,9 +22,10 @@ class ProjetsFactory extends Factory
             "image" => "https://placehold.co/600x400",
 
             "titre" => $this->faker->word,
-            "desc" => $this->faker->text,
-            "texte" => $this->faker->text,
-            "competences" => $this->faker->word,
+            "intro" => $this->faker->paragraph,
+            "presentation" => $this->faker->paragraph(2),
+
+            ""
         ];
     }
 }

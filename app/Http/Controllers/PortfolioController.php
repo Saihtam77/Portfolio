@@ -50,7 +50,8 @@ class PortfolioController extends Controller
     public function showProjet(string $id)
     {
         $projet = Projets::find($id);
-        return Inertia::render("ShowPages/Projet", ['projet' => $projet]);
+        $technologies = $projet->technologies;
+        return Inertia::render("ShowPages/Projet", ['projet' => $projet, 'technologies' => $technologies]);
     }
 
 

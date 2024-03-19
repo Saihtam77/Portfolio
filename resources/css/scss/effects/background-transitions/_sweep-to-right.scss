@@ -13,7 +13,8 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: $activeColor;
+		background: #F5CC00;
+		border-radius: 0.5rem;
 		@include prefixed(transform, scaleX(0));
 		@include prefixed(transform-origin, 0 50%);
 		@include prefixed(transition-property, transform);
@@ -24,8 +25,8 @@
 	&:hover,
 	&:focus,
 	&:active {
-		color: white;
-
+		color: black;
+		
 		&:before {
 			@include prefixed(transform, scaleX(1));
 		}

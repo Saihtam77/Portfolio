@@ -3,43 +3,33 @@
 @tailwind components;
 @tailwind utilities;
 
-
-$oxford-blue-300: #0a1128;
-$oxford-blue-200: #101C41;
-$oxford-blue-100: #142452;
-
-$icterine-300: #FCFF4B;
-$icterine-200: #FDFF70;
-$icterine-100: #FDFF85;
-
-$PayneGray-300: #6C7781;
+$gunMetal: #212730;
+$jonquil: #F5CC00;
 
 
-.bg-oxford-blue-300 {
-    background-color: $oxford-blue-300;
+.bg-gunMetal {
+    background-color: $gunMetal;
 }
 
-.bg-oxford-blue-200 {
-    background-color: $oxford-blue-200;
+.bg-jonquil {
+    background-color: $jonquil;
 }
 
-.bg-oxford-blue-100 {
-    background-color: $oxford-blue-100;
+.text-gunMetal {
+    color: $gunMetal;
 }
 
-.bg-icterine-300 {
-    background-color: $icterine-300;
+.text-jonquil {
+    color: $jonquil;
 }
 
-.bg-icterine-200 {
-    background-color: $icterine-200;
+/* hide scroll bar but keep fonctionality */
+
+.scrollbar-hidden {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
-.bg-icterine-100 {
-    background-color: $icterine-100;
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
 }
-
-
-
-
-

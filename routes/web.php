@@ -6,6 +6,7 @@ use App\Http\Controllers\ParcoursController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjetsController;
+use App\Http\Controllers\TechnologiesController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -34,6 +35,10 @@ Route::prefix("/")->group(function () {
     Route::get("contact", function () {
         return Inertia::render("Contact");
     })->name("contact");
+
+    Route::get("Copyright", function () {
+        return Inertia::render("Copyright");
+    })->name("Copyright");
     
     Route::get("403", function () {
         return Inertia::render("403");
@@ -52,7 +57,7 @@ Route::middleware(['auth', 'verified'])->prefix("/dashboard")->group(function ()
     /* ressources */
     Route::resource("projets", ProjetsController::class);
     Route::resource("parcours", ParcoursController::class);
-    Route::resource("competences", CompetenceController::class);
+    Route::resource("technologies", TechnologiesController::class);
 });
 
 

@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Competences>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Technologies>
  */
-class CompetencesFactory extends Factory
+class TechnologiesFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,9 @@ class CompetencesFactory extends Factory
     public function definition(): array
     {
         return [
-            "titre" => $this->faker->word,
-            "niveau" => $this->faker->numberBetween(0, 100),
             "image" => "https://placehold.co/600x400",
+            "name" => $this->faker->word,
+            "niveau" => $this->faker->numberBetween(0, 100),
             "desc" => $this->faker->text(),
         ];
     }

@@ -1,27 +1,23 @@
-import { Link } from "@inertiajs/react";
+import { Link, router } from "@inertiajs/react";
+import Button from "../Button";
 
-const ProjetsTable = ({projets}) => {
+const ProjetsTable = ({ projets }) => {
+    const handleDelete = (id) => {
+        if (confirm("Are you sure?")) {
+            router.delete(route("projets.destroy", id));
+        }
+    };
     return (
-        <section className="mt-10">
-            <span className="p-5 border rounded-lg">
-                <Link
-                    href={route("projets.create")}
-                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                    Ajouter un projet
-                </Link>
-            </span>
+        <section className="mt-10 container mx-auto text-white">
+            <Button route={route("projets.create")}>Ajouter un projet</Button>
             <div class="mt-10 relative overflow-x-auto shadow-md sm:rounded-lg">
-                
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-400  ">
+                    <thead class="text-xs bg-gray-700 ">
                         <tr>
-                            
                             <th scope="col" class="px-6 py-3">
                                 Titre
                             </th>
-                            
-                            
+
                             <th scope="col" class="px-6 py-3">
                                 Modifié le :
                             </th>
@@ -32,33 +28,32 @@ const ProjetsTable = ({projets}) => {
                     </thead>
                     <tbody>
                         {projets.map((projet) => (
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                
+                            <tr class="border-b hover:bg-gray-600 bg-gray-800 border-gray-700">
                                 <td class="px-6 py-4">{projet.titre}</td>
-                                
+
                                 <td class="px-6 py-4">{projet.updated_at}</td>
                                 <td class="px-6 py-4 text-right flex gap-x-3">
                                     <Link
                                         href={route("projets.edit", projet.id)}
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                        class="font-medium text-blue-500 hover:underline"
                                     >
                                         Edit
                                     </Link>
 
                                     <Link
+                                        href={`/portfolio/projets/${projet.id}_${projet.titre}`}
+                                        class="font-medium text-blue-500 hover:underline"
+                                    >
+                                        Show
+                                    </Link>
+
+                                    <Link
                                         as="button"
-                                        onClick={() => {
-                                            if (confirm("Are you sure?")) {
-                                                axios
-                                                    .delete(
-                                                        route("projets.destroy", projet.id)
-                                                    )
-                                                    .then(() => {
-                                                        window.location.reload();
-                                                    });
-                                            }
-                                        }}
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                                        onClick={(e) => (
+                                            e.preventDefault(),
+                                            handleDelete(projet.id)
+                                        )}
+                                        class="font-medium text-blue-500 hover:underline"
                                     >
                                         Delete
                                     </Link>
@@ -70,6 +65,6 @@ const ProjetsTable = ({projets}) => {
             </div>
         </section>
     );
-}
+};
 
 export default ProjetsTable;

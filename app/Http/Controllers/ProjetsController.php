@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Projets;
+use App\Models\Technologies;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -22,7 +23,9 @@ class ProjetsController extends Controller
      */
     public function create()
     {
-        return Inertia::render("Dashboard/ProjetCreate");
+        $technologies=Technologies::all();
+        
+        return Inertia::render("Dashboard/ProjetCreate", ['technologies' => $technologies]);
     }
 
     /**
@@ -30,20 +33,42 @@ class ProjetsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'titre' => 'required',
-            'desc' => 'required',
-            'texte' => 'required',
-            'competences' => 'required',
-            // 'image'=>'required',
-        ]);
+        try{
+            $request->validate([
+                'titre' => 'required',
+                'intro' => 'required',
+                'presentation' => 'required',
+                'objectif' => 'required',
+    
+                'technologies' => 'required|array|min:1',
+    
+                // 'thumbnail'=>'required',
+                // 'images'=>'required',
+                // 'imgFrontOffice'=>'required',
+                // 'imgBackOffice'=>'required',
+            ]);
+        }
+        catch(\Exception $e){
+            return dd($e);
+        }
+        
+
         $projet = new Projets();
+
         $projet->titre = $request->titre;
-        $projet->desc = $request->desc;
-        $projet->texte = $request->texte;
-        $projet->competences = $request->competences;
-        // $projet->image=$request->image;
+        $projet->intro = $request->intro;
+        $projet->presentation = $request->presentation;
+        $projet->objectif = $request->objectif;
+        
+        // $projet->thumbnail=$request->thumbnail;
+        // $projet->images=$request->images;
+        // $projet->imgFrontOffice=$request->imgFrontOffice;
+        // $projet->imgBackOffice=$request->imgBackOffice;
+
         $projet->save();
+
+        $projet->technologies()->attach($request->technologies);
+
         return redirect()->route('projets.index')->with('success', 'Projet ajouté avec succès');
     }
 
@@ -69,20 +94,38 @@ class ProjetsController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
         $request->validate([
             'titre' => 'required',
-            'desc' => 'required',
-            'texte' => 'required',
-            'competences' => 'required',
-            // 'image'=>'required',
+            'intro' => 'required',
+            'presentation' => 'required',
+            'objectif' => 'required',
+
+            'technologies' => 'required|array|min:1',
+
+            // 'thumbnail'=>'required',
+            // 'images'=>'required',
+            // 'imgFrontOffice'=>'required',
+            // 'imgBackOffice'=>'required',
         ]);
+
         $projet = Projets::find($id);
+
         $projet->titre = $request->titre;
-        $projet->desc = $request->desc;
-        $projet->texte = $request->texte;
-        $projet->competences = $request->competences;
-        // $projet->image=$request->image;
+        $projet->intro = $request->intro;
+        $projet->presentation = $request->presentation;
+        $projet->objectif = $request->objectif;
+
+        // $projet->thumbnail=$request->thumbnail;
+        // $projet->images=$request->images;
+        // $projet->imgFrontOffice=$request->imgFrontOffice;
+        // $projet->imgBackOffice=$request->imgBackOffice;
+
         $projet->save();
+
+        $projet->technologies()->sync($request->technologies);
+
+
         return redirect()->route('projets.index')->with('success', 'Projet modifié avec succès');
     }
 
