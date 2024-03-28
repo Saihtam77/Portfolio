@@ -1,0 +1,1 @@
+import{j as t,d as e}from"./app-m4qZWMZN.js";const d=({route:r,children:o})=>t.jsx(e,{as:"button",href:r,class:"hvr-icon-forward hvr-sweep-to-right hvr-grow p-5 border rounded-lg hover:border-[#F5CC00] ",children:o});export{d as B};
