@@ -1,0 +1,1 @@
+import{j as a,a as s}from"./app-ra6Hzr2T.js";import{D as r}from"./DashboardLayout-Vg0KakCV.js";function x({auth:t,projets:e,parcours:o}){return a.jsxs(r,{children:[a.jsx(s,{title:"Dashboard"}),a.jsx("section",{className:"py-12 flex flex-col items-center gap-20"})]})}export{x as default};
